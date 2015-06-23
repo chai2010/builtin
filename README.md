@@ -4,15 +4,14 @@ Please copy the [builtin.go](builtin.go) file and fix the package name!
 
 # Examples
 
-
-BUGS
-====
-
 ```Go
 func main() {
 	printf("hello %s\n", "world")
 }
 ```
+
+
+# BUGS
 
 Report bugs to <chaishushan@gmail.com>.
 
