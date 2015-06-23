@@ -2,37 +2,26 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package builtin_test
+package builtin
 
 import (
 	"fmt"
 	"image/color"
 	"reflect"
 	"sort"
-
-	. "github.com/chai2010/builtin"
 )
-
-func ExampleIf() {
-	a, b := 42, 9527
-	fmt.Printf("max: %d\n", If(a > b, a, b).(int))
-	fmt.Printf("min: %d\n", If(a < b, a, b).(int))
-	// Output:
-	// max: 9527
-	// min: 42
-}
 
 func ExampleByteSlice() {
 	src := []color.Gray{color.Gray{0xAA}, color.Gray{0xBB}, color.Gray{0xCC}, color.Gray{0xDD}}
 	dst := make([]byte, len(src))
-	copy(ByteSlice(dst), ByteSlice(src))
+	copy(byteSlice(dst), byteSlice(src))
 	fmt.Printf("%X", dst)
 	// Output: AABBCCDD
 }
 
 func ExampleSlice() {
 	src := []byte{0xAA, 0xBB, 0xCC, 0xDD}
-	dst := Slice(src, reflect.TypeOf([]color.Gray(nil))).([]color.Gray)
+	dst := unknownSlice(src, reflect.TypeOf([]color.Gray(nil))).([]color.Gray)
 	fmt.Printf("%X", dst)
 	// Output:
 	// [{AA} {BB} {CC} {DD}]

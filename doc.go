@@ -5,22 +5,6 @@
 /*
 Package builtin provides some usefull functions.
 
-Convert []X to []Y:
-	x := make([]X, xLen)
-	y := Slice(x, reflect.TypeOf([]X(nil))).([]Y)
-
-or
-
-	x := make([]X, xLen)
-	y := ((*[1 << 30]Y)(unsafe.Pointer(&x[0])))[:yLen]
-
-Convert []X to []byte:
-	x := make([]X, xLen)
-	y := ByteSlice(x, reflect.TypeOf([]X(nil)))
-
-or
-
-	x := make([]X, xLen)
-	y := ((*[1 << 30]byte)(unsafe.Pointer(&x[0])))[:yLen]
+Please copy this file and fix the package name!
 */
 package builtin
