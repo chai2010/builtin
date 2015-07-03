@@ -7,6 +7,7 @@
 package builtin
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"reflect"
@@ -84,7 +85,10 @@ func panicln(a ...interface{}) {
 }
 
 func errorf(format string, a ...interface{}) error {
-	return fmt.Errorf(format, a...)
+	file, line := callerFileLine()
+	s := fmt.Sprintf("%s:%d: ", file, line)
+	s += fmt.Sprintf(format, a...)
+	return errors.New(s)
 }
 
 func printf(format string, a ...interface{}) (n int, err error) {
